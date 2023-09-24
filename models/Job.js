@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const JobSchema = new mongoose.Schema({
-  jobId: {
-    type: String,
-    required: true,
-  },
   image: {
     type: String,
     required: true,
@@ -17,7 +13,7 @@ const JobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  desc: {
+  companyDesc: {
     type: String,
     required: true,
   },
@@ -25,20 +21,27 @@ const JobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  jobrole: {
+  designation: {
     type: String,
     required: true,
   },
   experience: String,
   location: String,
-  jobdescription: [String],
+  jobDesc: [String],
   batch: String,
   jobResponsibilities: [String],
-  keyRequirements: [String], // Change to an array of strings
+  skills: [String], // Change to an array of strings
   eligibility: String,
   allStreams: Boolean,
-  requiredSkills: [String],
   applyLink: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 export default mongoose.model('Job', JobSchema)
