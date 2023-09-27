@@ -3,6 +3,7 @@ import Job from '../models/Job.js';
 //1. Add Job
 export const addJob = async (req, res, next) => {
   const newJob = new Job({ ...req.body })
+  console.log(newJob)
   try {
     const savedJob = await newJob.save();
     return res.status(200).json(newJob)

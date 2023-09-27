@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from "mongoose"
 import dotenv from "dotenv";
 import jobRoutes from "./routes/job.js"
+import authRoutes from "./routes/authRouter.js"
 import cookieParser from "cookie-parser"
 import cors from 'cors'
 
@@ -20,7 +21,6 @@ const connect = () => {
     })
 }
 
-
 const corsOptions = {
     origin: true, //included origin as true
     credentials: true, //included credentials as true
@@ -31,6 +31,7 @@ app.use(cookieParser())
 
 //middlewares
 app.use(express.json())
+app.use("/api/auth", authRoutes)
 app.use("/api/jobs", jobRoutes)
 
 //error handler
