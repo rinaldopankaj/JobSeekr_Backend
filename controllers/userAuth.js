@@ -43,6 +43,8 @@ export const verifyToken = async (req, res, next) => {
     // let token = req.cookies.access_token;
     let token = req.body.token || req.cookies.access_token;
 
+    //console.log(token)
+
     if (!token) return next(createError(401, "You are not authenticated!"));
 
     jwt.verify(token, process.env.JWT, (err) => {
